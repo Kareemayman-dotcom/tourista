@@ -39,48 +39,6 @@ class _PlaceCardState extends State<PlaceCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 255, 218, 69),
-<<<<<<< Updated upstream
-      body: Stack(
-        children: [
-          SizedBox(
-            height: 40.h,
-            width: double.infinity,
-            child: AspectRatio(
-              aspectRatio: _videoPlayerController.value.aspectRatio,
-              child: FittedBox(
-                fit: BoxFit.fitHeight,
-                child: SizedBox(
-                  width: _videoPlayerController.value.size.width,
-                  height: _videoPlayerController.value.size.height,
-                  child: VideoPlayer(_videoPlayerController),
-                ),
-              ),
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [],
-          ),
-          CustomScrollView(
-            slivers: [
-              SliverPersistentHeader(
-                pinned: true,
-                floating: true,
-                delegate: _AppBarDelegate(
-                  minHeight: 25.h,
-                  maxHeight: 40.h,
-                ),
-              ),
-              SliverList(
-                // Use SliverList or other slivers for body content
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) => ListTile(title: Text("Item $index")),
-                  childCount: 20,
-                ),
-              ),
-            ],
-          ),
-=======
       body: CustomScrollView(
         slivers: [
           SliverPersistentHeader(
@@ -117,7 +75,6 @@ class _PlaceCardState extends State<PlaceCard> {
               ),
             ),
           )
->>>>>>> Stashed changes
         ],
       ),
     );
@@ -165,9 +122,6 @@ class _AppBarDelegate extends SliverPersistentHeaderDelegate {
   Widget build(context, double shrinkOffset, bool overlapsContent) {
     return ClipPath(
       clipper: Customclip(),
-<<<<<<< Updated upstream
-      child: Container(),
-=======
       child: SizedBox(
         height: 50.h,
         width: double.infinity,
@@ -183,7 +137,6 @@ class _AppBarDelegate extends SliverPersistentHeaderDelegate {
           ),
         ),
       ),
->>>>>>> Stashed changes
     );
   }
 
