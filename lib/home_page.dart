@@ -17,16 +17,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late VideoPlayerController _videoPlayerController;
+  bool _videoInitialized = false; // A flag to track initialization
 
   @override
   void initState() {
     super.initState();
-    Directory("assets/videos/").list().forEach((f) => print(f.path));
 
     _videoPlayerController =
         VideoPlayerController.asset('assets/CairoTimeLapse.mp4')
           ..initialize().then((_) {
-            setState(() {});
+            setState(() {
+              _videoInitialized = true;
+            });
           }).catchError((error) {
             print('Error during video initialization: $error');
           });
@@ -46,7 +48,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          _videoPlayerController.value.isInitialized
+          _videoInitialized && _videoPlayerController.value.isInitialized
               ? SizedBox(
                   height: 100.h,
                   width: double.infinity,
@@ -118,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                             Shadow(
                                 offset: Offset(1.0, 1.0),
                                 blurRadius: 2.0,
-                                color: Color.fromARGB(255, 255, 218, 69)),
+                                color: Color.fromARGB(255, 235, 190, 10)),
                           ],
                           fontFamily: 'Poppins',
                         ),
@@ -127,8 +129,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => PlaceCard()));
+                      Navigator.pushNamed(context, PlaceCard.id);
                     },
                     child: Container(
                       width: 70.w,
@@ -136,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(bottom: 15.h),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: Color.fromARGB(255, 255, 218, 69),
+                        color: Color.fromARGB(255, 235, 190, 10),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

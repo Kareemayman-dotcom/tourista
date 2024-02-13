@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   sizer: ^2.0.15
   video_player: ^2.8.2
-
+  youtube_player_flutter: ^8.1.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -20,8 +20,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-      - assets/CairoTimeLapse.mp4
-      - assets/pyramids.png
-      - assets/tourist.png
-      - assets/pyramids.mp4
-
+    - assets/CairoTimeLapse.mp4
+    - assets/pyramids.png
+    - assets/tourist.png
+    - assets/pyramids.mp4
+    - assets/videowallpaper.jpg
