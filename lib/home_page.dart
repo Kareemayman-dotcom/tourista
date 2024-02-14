@@ -130,7 +130,9 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const PlaceCard()));
+                            builder: (context) => const PlaceCard(),
+                            maintainState: true,
+                          ));
                     },
                     child: Container(
                       width: 70.w,

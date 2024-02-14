@@ -36,7 +36,7 @@ class PlaceCardWidget extends StatelessWidget {
               pinned: true,
               floating: true,
               delegate: _AppBarDelegate(
-                BlocProvider.of<PlaceCardVideoCubit>(context).controller,
+                BlocProvider.of<PlaceCardVideoCubit>(context).controller!,
                 minHeight: 27.h,
                 maxHeight: 40.h,
               ),
@@ -133,11 +133,20 @@ class _AppBarDelegate extends SliverPersistentHeaderDelegate {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const VideoPage(
-                videoUrl: "https://youtu.be/opoZaIVWcHA",
-              ),
+              builder: (context) {
+                return BlocProvider<PlaceCardVideoCubit>(
+                  create: (context) => PlaceCardVideoCubit(),
+                  child: const VideoPage(
+                    videoUrl: "https://youtu.be/opoZaIVWcHA",
+                  ),
+                );
+              },
             ),
-          );
+          ).then((_) async {
+            // When returning back to the PlaceCard screen, create a new instance of the cubit.
+            BlocProvider.of<PlaceCardVideoCubit>(context)
+                .initializeController();
+          });
         },
         child: SizedBox(
           height: 50.h,
@@ -146,26 +155,31 @@ class _AppBarDelegate extends SliverPersistentHeaderDelegate {
             listener: (context, state) {
               if (state is PlaceCardVideoInitial) {
                 BlocProvider.of<PlaceCardVideoCubit>(context)
-                    .controller
+                    .controller!
                     .seekTo(const Duration(seconds: 10));
 
                 BlocProvider.of<PlaceCardVideoCubit>(context).play();
               }
             },
             builder: (context, state) {
-              return AspectRatio(
-                aspectRatio: videoPlayerController.value.aspectRatio,
-                child: FittedBox(
-                  fit: BoxFit.fitHeight,
-                  child: SizedBox(
-                    width: videoPlayerController.value.size.width,
-                    height: videoPlayerController.value.size.height,
-                    child: VideoPlayer(
-                        BlocProvider.of<PlaceCardVideoCubit>(context)
-                            .controller),
+              if (videoPlayerController.value.isInitialized) {
+                return AspectRatio(
+                  aspectRatio: videoPlayerController.value.aspectRatio,
+                  child: FittedBox(
+                    fit: BoxFit.fitHeight,
+                    child: SizedBox(
+                      width: videoPlayerController.value.size.width,
+                      height: videoPlayerController.value.size.height,
+                      child: VideoPlayer(
+                          BlocProvider.of<PlaceCardVideoCubit>(context)
+                              .controller!),
+                    ),
                   ),
-                ),
-              );
+                );
+              } else {
+                return const Center(
+                    child: CircularProgressIndicator.adaptive());
+              }
             },
           ),
         ),

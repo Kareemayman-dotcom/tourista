@@ -1,12 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPage extends StatefulWidget {
-  final String id = 'VideoPage';
-  final String videoUrl;
+  static String id = 'VideoPage';
+  final String? videoUrl;
 
-  const VideoPage({super.key, required this.videoUrl});
+  const VideoPage({super.key,  this.videoUrl});
 
   @override
   State<VideoPage> createState() => VideoPageState();
@@ -17,13 +19,14 @@ class VideoPageState extends State<VideoPage> {
 
   @override
   void initState() {
-    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
+    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl!);
     _controller = YoutubePlayerController(
       initialVideoId: videoId!,
       flags: const YoutubePlayerFlags(
         autoPlay: true,
         captionLanguage: "ar",
         showLiveFullscreenButton: true,
+        useHybridComposition: true,
       ),
     );
     super.initState();
@@ -32,6 +35,7 @@ class VideoPageState extends State<VideoPage> {
   @override
   void dispose() {
     _controller.dispose();
+    log('VideoPageState disposed');
     super.dispose();
   }
 
