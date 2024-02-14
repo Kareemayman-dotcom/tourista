@@ -3,10 +3,10 @@ import 'package:sizer/sizer.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPage extends StatefulWidget {
-  static String id = 'VideoPage';
+  final String id = 'VideoPage';
+  final String videoUrl;
 
-  String videoUrl;
-  VideoPage({super.key, required this.videoUrl});
+  const VideoPage({super.key, required this.videoUrl});
 
   @override
   State<VideoPage> createState() => VideoPageState();
@@ -20,7 +20,7 @@ class VideoPageState extends State<VideoPage> {
     final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
     _controller = YoutubePlayerController(
       initialVideoId: videoId!,
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: true,
         captionLanguage: "ar",
         showLiveFullscreenButton: true,
@@ -46,14 +46,14 @@ class VideoPageState extends State<VideoPage> {
                   ? Container(
                       height: 100.h,
                       width: 100.w,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage("assets/videowallpaper.jpg"),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                     )
-                  : Text(''),
+                  : const Text(''),
               Center(
                 child: YoutubePlayer(
                   controller: _controller,

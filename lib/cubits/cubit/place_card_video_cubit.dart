@@ -1,5 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_player/video_player.dart';
 
 part 'place_card_video_state.dart';
@@ -10,8 +9,8 @@ class PlaceCardVideoCubit extends Cubit<PlaceCardVideoState> {
   late final VideoPlayerController controller;
 
   PlaceCardVideoCubit() : super(PlaceCardVideoInitial()) {
-    String Videoaddress = 'assets/pyramids.mp4';
-    controller = VideoPlayerController.asset(Videoaddress)
+    String videoAddress = 'assets/pyramids.mp4';
+    controller = VideoPlayerController.asset(videoAddress)
       ..initialize().then((_) {
         controller.setLooping(true);
         emit(PlaceCardVideoInitial());
@@ -19,13 +18,12 @@ class PlaceCardVideoCubit extends Cubit<PlaceCardVideoState> {
   }
 
   void play() {
-      controller.play();
-      emit(PlaceCardVideoPlaying());
-    
+    controller.play();
+    emit(PlaceCardVideoPlaying());
   }
 
   void pause() {
-    if (state == PlaceCardVideoStatus.playing) {
+    if (state is PlaceCardVideoPlaying) {
       controller.pause();
       emit(PlaceCardVideoPaused());
     }

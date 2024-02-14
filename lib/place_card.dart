@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -11,22 +10,26 @@ import 'widgets/paragraph_widget.dart';
 class PlaceCard extends StatelessWidget {
   static String id = 'PlaceCard';
 
+  const PlaceCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => PlaceCardVideoCubit(),
-      child: PlaceCardWidget(),
+      child: const PlaceCardWidget(),
     );
   }
 }
 
 class PlaceCardWidget extends StatelessWidget {
+  const PlaceCardWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 235, 190, 10),
+      backgroundColor: const Color.fromARGB(255, 235, 190, 10),
       body: Container(
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: CustomScrollView(
           slivers: [
             SliverPersistentHeader(
@@ -44,9 +47,10 @@ class PlaceCardWidget extends StatelessWidget {
               delegate: _StickyTitleDelegate("The Pyramids Of Giza"),
             ),
             SliverFillRemaining(
+              hasScrollBody: false,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ParagraphWidget(
@@ -129,7 +133,7 @@ class _AppBarDelegate extends SliverPersistentHeaderDelegate {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => VideoPage(
+              builder: (context) => const VideoPage(
                 videoUrl: "https://youtu.be/opoZaIVWcHA",
               ),
             ),
@@ -143,7 +147,7 @@ class _AppBarDelegate extends SliverPersistentHeaderDelegate {
               if (state is PlaceCardVideoInitial) {
                 BlocProvider.of<PlaceCardVideoCubit>(context)
                     .controller
-                    .seekTo(Duration(seconds: 10));
+                    .seekTo(const Duration(seconds: 10));
 
                 BlocProvider.of<PlaceCardVideoCubit>(context).play();
               }

@@ -18,10 +18,10 @@ class MainApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           routes: {
-            HomePage.id: (context) => HomePage(),
-            PlaceCard.id: (context) => PlaceCard(),
+            HomePage.id: (context) => const HomePage(),
+            PlaceCard.id: (context) => const PlaceCard(),
           },
-          home: HomePage(),
+          home: const HomePage(),
         );
       },
     );

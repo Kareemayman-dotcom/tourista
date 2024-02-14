@@ -3,9 +3,9 @@ import 'package:sizer/sizer.dart';
 import 'package:tourista/constants.dart';
 
 class ParagraphWidget extends StatelessWidget {
-  String header;
-  String text;
-  ParagraphWidget({
+  final String header;
+  final String text;
+  const ParagraphWidget({
     required this.header,
     required this.text,
     super.key,
@@ -18,7 +18,7 @@ class ParagraphWidget extends StatelessWidget {
       child: RichText(
         textAlign: TextAlign.justify,
         text: TextSpan(text: " $header\n", style: titleStyle, children: [
-          TextSpan(text: "\n"),
+          const TextSpan(text: "\n"),
           TextSpan(
               text: text,
               style: TextStyle(

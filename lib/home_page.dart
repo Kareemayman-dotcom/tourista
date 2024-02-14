@@ -1,3 +1,4 @@
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -16,20 +17,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late VideoPlayerController _videoPlayerController;
-  bool _videoInitialized = false; // A flag to track initialization
 
   @override
   void initState() {
     super.initState();
+    Directory("assets/videos/").list().forEach((f) => debugPrint(f.path));
 
     _videoPlayerController =
         VideoPlayerController.asset('assets/CairoTimeLapse.mp4')
           ..initialize().then((_) {
-            setState(() {
-              _videoInitialized = true;
-            });
+            setState(() {});
           }).catchError((error) {
-            print('Error during video initialization: $error');
+            debugPrint('Error during video initialization: $error');
           });
 
     _videoPlayerController.setLooping(true);
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Stack(
         children: [
-          _videoInitialized && _videoPlayerController.value.isInitialized
+          _videoPlayerController.value.isInitialized
               ? SizedBox(
                   height: 100.h,
                   width: double.infinity,
@@ -90,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                                 ..style = PaintingStyle.stroke
                                 ..strokeWidth = 2.0
                                 ..color = Colors.black,
-                              shadows: <Shadow>[
+                              shadows: const <Shadow>[
                                 Shadow(
                                     offset: Offset(1.0, 1.0),
                                     blurRadius: 2.0,
@@ -115,11 +114,11 @@ class _HomePageState extends State<HomePage> {
                             ..style = PaintingStyle.stroke
                             ..strokeWidth = 1.0
                             ..color = Colors.white,
-                          shadows: <Shadow>[
+                          shadows: const <Shadow>[
                             Shadow(
                                 offset: Offset(1.0, 1.0),
                                 blurRadius: 2.0,
-                                color: Color.fromARGB(255, 235, 190, 10)),
+                                color: Color.fromARGB(255, 255, 218, 69)),
                           ],
                           fontFamily: 'Poppins',
                         ),
@@ -128,7 +127,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, PlaceCard.id);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PlaceCard()));
                     },
                     child: Container(
                       width: 70.w,
@@ -136,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(bottom: 15.h),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
-                        color: Color.fromARGB(255, 235, 190, 10),
+                        color: const Color.fromARGB(255, 255, 218, 69),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

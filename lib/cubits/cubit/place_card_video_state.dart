@@ -1,6 +1,5 @@
 part of 'place_card_video_cubit.dart';
 
-@immutable
 abstract class PlaceCardVideoState {}
 
 class PlaceCardVideoInitial extends PlaceCardVideoState {}
