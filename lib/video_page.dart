@@ -14,18 +14,28 @@ class VideoPage extends StatefulWidget {
 
 class VideoPageState extends State<VideoPage> {
   late YoutubePlayerController _controller;
+
   @override
   void initState() {
     final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
     _controller = YoutubePlayerController(
-        initialVideoId: videoId!,
-        flags: YoutubePlayerFlags(
-            autoPlay: true,
-            captionLanguage: "ar",
-            showLiveFullscreenButton: true));
+      initialVideoId: videoId!,
+      flags: YoutubePlayerFlags(
+        autoPlay: true,
+        captionLanguage: "ar",
+        showLiveFullscreenButton: true,
+      ),
+    );
     super.initState();
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: OrientationBuilder(
@@ -37,16 +47,18 @@ class VideoPageState extends State<VideoPage> {
                       height: 100.h,
                       width: 100.w,
                       decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage("assets/videowallpaper.jpg"),
-                              fit: BoxFit.fitHeight)),
+                        image: DecorationImage(
+                          image: AssetImage("assets/videowallpaper.jpg"),
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
                     )
-                  : Text('data'),
+                  : Text(''),
               Center(
-                  child: YoutubePlayer(
-                controller: _controller,
-                onReady: () {},
-              ))
+                child: YoutubePlayer(
+                  controller: _controller,
+                ),
+              ),
             ],
           );
         },

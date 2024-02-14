@@ -1,48 +1,27 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
-import 'package:tourista/constants.dart';
 import 'package:tourista/video_page.dart';
 import 'package:video_player/video_player.dart';
 
+import 'cubits/cubit/place_card_video_cubit.dart';
 import 'widgets/paragraph_widget.dart';
 
-class PlaceCard extends StatefulWidget {
+class PlaceCard extends StatelessWidget {
   static String id = 'PlaceCard';
 
   @override
-  State<PlaceCard> createState() => _PlaceCardState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => PlaceCardVideoCubit(),
+      child: PlaceCardWidget(),
+    );
+  }
 }
 
-class _PlaceCardState extends State<PlaceCard> {
+class PlaceCardWidget extends StatelessWidget {
   @override
-  late VideoPlayerController _videoPlayerController;
-  static final ValueNotifier<bool> _videoInitialized = ValueNotifier(false);
-
-  @override
-  void initState() {
-    super.initState();
-
-    _videoPlayerController = VideoPlayerController.asset('assets/pyramids.mp4')
-      ..initialize().then((_) {
-        setState(() {
-          _videoPlayerController.setLooping(true);
-          _videoPlayerController.play();
-          _videoPlayerController.setVolume(100);
-          _videoInitialized.value = true;
-        });
-      }).catchError((error) {
-        print('Error during video initialization: $error');
-      });
-  }
-
-  @override
-  void dispose() {
-    _videoPlayerController.dispose();
-    super.dispose();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 235, 190, 10),
@@ -54,16 +33,16 @@ class _PlaceCardState extends State<PlaceCard> {
               pinned: true,
               floating: true,
               delegate: _AppBarDelegate(
-                _videoPlayerController,
+                BlocProvider.of<PlaceCardVideoCubit>(context).controller,
                 minHeight: 27.h,
                 maxHeight: 40.h,
               ),
             ),
             SliverPersistentHeader(
-                // pinned: true,
-                pinned: true,
-                floating: true,
-                delegate: _StickyTitleDelegate("The Pyramids Of Giza")),
+              pinned: true,
+              floating: true,
+              delegate: _StickyTitleDelegate("The Pyramids Of Giza"),
+            ),
             SliverFillRemaining(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -71,19 +50,21 @@ class _PlaceCardState extends State<PlaceCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ParagraphWidget(
-                        header: "The Eternal Enigma of the Pyramids",
-                        text:
-                            "For millennia, the pyramids of ancient Egypt have stood as monolithic testaments to human ingenuity and ambition. Their geometric precision and sheer scale continue to amaze architects and historians alike, fueling endless debates and hypotheses regarding their construction techniques. The Great Pyramid of Giza, the most iconic of them all, is thought to have been built some 4,500 years ago during the reign of Pharaoh Khufu. This staggering structure, composed of over 2 million massive stone blocks, ascends to a dizzying height of 481 feet, captivating generations with the mysteries of its creation."),
+                      header: "The Eternal Enigma of the Pyramids",
+                      text:
+                          "For millennia, the pyramids of ancient Egypt have stood as monolithic testaments to human ingenuity and ambition. Their geometric precision and sheer scale continue to amaze architects and historians alike, fueling endless debates and hypotheses regarding their construction techniques. The Great Pyramid of Giza, the most iconic of them all, is thought to have been built some 4,500 years ago during the reign of Pharaoh Khufu. This staggering structure, composed of over 2 million massive stone blocks, ascends to a dizzying height of 481 feet, captivating generations with the mysteries of its creation.",
+                    ),
                     Expanded(
                       child: ParagraphWidget(
-                          header: "The Workforce: Myth and Reality",
-                          text:
-                              "Contrary to popular depictions, it's widely accepted by Egyptologists that skilled laborers—not slaves—were the cornerstone of the pyramid construction effort. Discoveries of workers' settlements near the pyramids reveal evidence of organized communities with access to food, medical care, and burial chambers. These insights paint a less exploitative picture of their lives."),
-                    )
+                        header: "The Workforce: Myth and Reality",
+                        text:
+                            "Contrary to popular depictions, it's widely accepted by Egyptologists that skilled laborers—not slaves—were the cornerstone of the pyramid construction effort. Discoveries of workers' settlements near the pyramids reveal evidence of organized communities with access to food, medical care, and burial chambers. These insights paint a less exploitative picture of their lives.",
+                      ),
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -97,7 +78,10 @@ class _StickyTitleDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
       child: Text(
@@ -125,40 +109,60 @@ class _AppBarDelegate extends SliverPersistentHeaderDelegate {
   final double maxHeight;
   final VideoPlayerController videoPlayerController; // Declare a variable
 
-  _AppBarDelegate(this.videoPlayerController,
-      {required this.minHeight, required this.maxHeight});
+  _AppBarDelegate(
+    this.videoPlayerController, {
+    required this.minHeight,
+    required this.maxHeight,
+  });
 
   @override
-  Widget build(context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+    context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return ClipPath(
       clipper: Customclip(),
       child: GestureDetector(
         onTap: () {
           videoPlayerController.pause();
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    VideoPage(videoUrl: "https://youtu.be/opoZaIVWcHA"),
-              ));
+            context,
+            MaterialPageRoute(
+              builder: (context) => VideoPage(
+                videoUrl: "https://youtu.be/opoZaIVWcHA",
+              ),
+            ),
+          );
         },
         child: SizedBox(
           height: 50.h,
           width: double.infinity,
-          child: AspectRatio(
-            aspectRatio: videoPlayerController.value.aspectRatio,
-            child: FittedBox(
-              fit: BoxFit.fitHeight,
-              child: SizedBox(
-                width: videoPlayerController.value.size.width,
-                height: videoPlayerController.value.size.height,
-                child: ValueListenableBuilder(
-                  valueListenable: _PlaceCardState._videoInitialized,
-                  builder: (context, value, child) =>
-                      VideoPlayer(videoPlayerController),
+          child: BlocConsumer<PlaceCardVideoCubit, PlaceCardVideoState>(
+            listener: (context, state) {
+              if (state is PlaceCardVideoInitial) {
+                BlocProvider.of<PlaceCardVideoCubit>(context)
+                    .controller
+                    .seekTo(Duration(seconds: 10));
+
+                BlocProvider.of<PlaceCardVideoCubit>(context).play();
+              }
+            },
+            builder: (context, state) {
+              return AspectRatio(
+                aspectRatio: videoPlayerController.value.aspectRatio,
+                child: FittedBox(
+                  fit: BoxFit.fitHeight,
+                  child: SizedBox(
+                    width: videoPlayerController.value.size.width,
+                    height: videoPlayerController.value.size.height,
+                    child: VideoPlayer(
+                        BlocProvider.of<PlaceCardVideoCubit>(context)
+                            .controller),
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
         ),
       ),

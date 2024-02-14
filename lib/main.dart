@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tourista/home_page.dart';
 import 'package:tourista/place_card.dart';
-import 'package:tourista/video_page.dart';
 
 void main() {
   runApp(const MainApp());
