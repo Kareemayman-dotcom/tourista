@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:tourista/constants.dart';
+import 'package:tourista/core/utils/constants.dart';
 
 class ParagraphWidget extends StatelessWidget {
   final String header;

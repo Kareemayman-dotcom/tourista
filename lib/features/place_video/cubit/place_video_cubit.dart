@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_player/video_player.dart';
 
-part 'place_card_video_state.dart';
+part 'place_video_state.dart';
 
-enum PlaceCardVideoStatus { loading, playing, paused }
+enum PlaceVideoStatus { loading, playing, paused }
 
-class PlaceCardVideoCubit extends Cubit<PlaceCardVideoState> {
+class PlaceVideoCubit extends Cubit<PlaceVideoState> {
   VideoPlayerController? controller; // Make it nullable
 
-  PlaceCardVideoCubit() : super(PlaceCardVideoInitial()) {
+  PlaceVideoCubit() : super(PlaceVideoInitial()) {
     initializeController();
   }
 
@@ -27,7 +27,7 @@ class PlaceCardVideoCubit extends Cubit<PlaceCardVideoState> {
       }).catchError((error) {
         // Handle error on initialization
         log('Error initializing video player: $error');
-        emit(PlaceCardVideoError(error));
+        emit(PlaceVideoError(error));
       });
   }
 
@@ -35,22 +35,26 @@ class PlaceCardVideoCubit extends Cubit<PlaceCardVideoState> {
     if (controller?.value.isInitialized == true) {
       controller!.play();
       log('after play');
-      emit(PlaceCardVideoPlaying());
+      emit(PlaceVideoPlaying());
     }
   }
 
   void pause() {
-    if (state is PlaceCardVideoPlaying &&
-        controller?.value.isInitialized == true) {
+    if (state is PlaceVideoPlaying && controller?.value.isInitialized == true) {
       controller!.pause();
-      emit(PlaceCardVideoPaused());
+      emit(PlaceVideoPaused());
     }
+  }
+
+  void disposeController() {
+    controller?.dispose();
+    controller = null; // Ensure the reference is cleared
   }
 
   @override
   Future<void> close() {
     if (controller?.value.isInitialized == true) {
-      controller!.dispose();
+      disposeController();
     }
     return super.close();
   }
