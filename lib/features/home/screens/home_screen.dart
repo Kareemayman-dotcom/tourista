@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tourista/config/routes/app_routes.dart';
 import 'package:tourista/features/home/cubit/home_cubit.dart';
+import 'package:tourista/features/navigation/presentation/cubit/navigation_cubit.dart';
 import 'package:video_player/video_player.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,7 +22,13 @@ class HomeScreen extends StatelessWidget {
                   width: double.infinity,
                   child: AspectRatio(
                     aspectRatio: controller!.value.aspectRatio,
-                    child: VideoPlayer(controller),
+                    child: FittedBox(
+                      fit: BoxFit.fitHeight,
+                      child: SizedBox(
+                          height: controller.value.size.height,
+                          width: controller.value.size.width,
+                          child: VideoPlayer(controller)),
+                    ),
                   ),
                 );
               } else {
@@ -89,7 +96,11 @@ class HomeScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.placeVideoRoute);
+                    Navigator.pushReplacementNamed(
+                      context,
+                      Routes.placeVideoRoute,
+                      arguments: context.read<NavigationCubit>().placeIndex,
+                    );
                   },
                   child: Container(
                     width: 70.w,

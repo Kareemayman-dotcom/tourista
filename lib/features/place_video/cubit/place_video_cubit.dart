@@ -10,13 +10,10 @@ enum PlaceVideoStatus { loading, playing, paused }
 class PlaceVideoCubit extends Cubit<PlaceVideoState> {
   VideoPlayerController? controller; // Make it nullable
 
-  PlaceVideoCubit() : super(PlaceVideoInitial()) {
-    initializeController();
-  }
+  PlaceVideoCubit() : super(PlaceVideoInitial());
 
   // Method to initialize the controller
-  void initializeController() {
-    String videoAddress = 'assets/pyramids.mp4';
+  void initializeController(String videoAddress) {
     // Dispose the old controller if it exists
     controller?.dispose();
     // Create a new controller

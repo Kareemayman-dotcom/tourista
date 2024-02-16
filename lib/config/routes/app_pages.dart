@@ -28,10 +28,7 @@ class AppRoutes {
       case Routes.placeVideoRoute:
         return MaterialPageRoute(
           builder: (context) {
-            return BlocProvider(
-              create: (context) => PlaceVideoCubit(),
-              child: const PlaceVideoScreen(),
-            );
+            return PlaceVideoScreen(placeIndex: routeSettings.arguments as int);
           },
           maintainState: true,
           settings: const RouteSettings(name: Routes.placeVideoRoute),
