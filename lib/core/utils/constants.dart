@@ -11,9 +11,11 @@ TextStyle titleStyle = TextStyle(
 );
 List<PlaceModel> places = [
   PlaceModel(
+      locationAddress: "https://maps.app.goo.gl/zjbjLaafikUaVgcM8",
       shortVideoAddress: 'assets/pyramids.mp4',
       fullVideoUrl: 'https://youtu.be/opoZaIVWcHA',
       title: 'The Pyramids Of Giza',
+      thumbnailAddress: 'assets/icons/thePyramids.jpg',
       paragraphs: [
         const ParagraphWidget(
           header: "The Eternal Enigma of the Pyramids",
@@ -42,9 +44,11 @@ List<PlaceModel> places = [
         ),
       ]),
   PlaceModel(
+      locationAddress: "https://maps.app.goo.gl/SrAwTzRLYmeVXGZr5",
       shortVideoAddress: 'assets/cairoTower.mp4',
-      fullVideoUrl: 'https://youtu.be/BAI9u-yX4-4',
+      fullVideoUrl: 'https://youtu.be/Rcd4TLEIP6U',
       title: 'The Cairo Tower',
+      thumbnailAddress: "assets/icons/cairoTower.jpg",
       paragraphs: [
         const ParagraphWidget(
           header: "Cairo's Iconic Beacon: The Cairo Tower",
@@ -60,9 +64,29 @@ List<PlaceModel> places = [
         ),
       ]),
   PlaceModel(
+    locationAddress: "https://maps.app.goo.gl/DNvnGXefyhFWsCmY8",
       shortVideoAddress: 'assets/KhanKhaliliBazaar.mp4',
       fullVideoUrl: 'https://youtu.be/MY3kolw6mNI',
       title: 'The Khan El-Khalili',
+      thumbnailAddress: "assets/icons/khanElkhalili.jpg",
+      paragraphs: [
+        const ParagraphWidget(
+          header: "A Labyrinth of Treasures: The Khan El-Khalili Experience",
+          text:
+              "The Khan El-Khalili bazaar is a vibrant labyrinth of commerce and culture, a place where the echoes of centuries mingle with the spirited haggling of modern-day Cairo.  Narrow alleyways twist and turn, lined with shops spilling over with gleaming brass lanterns, hand-woven carpets, aromatic spices, and intricately carved wooden treasures. The air buzzes with the calls of merchants, the clinking of tea glasses, and the scents of sizzling street food. More than just a market, Khan El-Khalili is a living slice of Egyptian history, a testament to the enduring traditions of craftsmanship and the timeless allure of the souk.",
+        ),
+        const ParagraphWidget(
+          header: "The Rise of Khan El-Khalili: A Market's Legacy",
+          text:
+              "The roots of Khan El-Khalili stretch back to the Fatimid era when a burial ground for caliphs, known as the Saffron Tomb, occupied the site. In the late 14th century, the powerful Mamluk emir Djaharks el-Khalili transformed the area, building a massive caravanserai (a traveler's inn) to centralize trade in the heart of Cairo. Over centuries, the Khan expanded into a sprawling network of souks and workshops.  It has weathered empires, plagues, and fires, evolving into a beloved symbol of Cairo's enduring spirit and its rich mercantile heritage.",
+        ),
+      ]),
+  PlaceModel(
+    locationAddress: "https://maps.app.goo.gl/RAffQK7gSHhkdxXm9",
+      shortVideoAddress: 'assets/grandEgyptianMuseum.mp4',
+      fullVideoUrl: 'https://youtu.be/-r2PRe3L-lw',
+      title: 'Grand Egyptian Museum',
+      thumbnailAddress: "assets/icons/newEgyptianMuseum.jpg",
       paragraphs: [
         const ParagraphWidget(
           header: "A Labyrinth of Treasures: The Khan El-Khalili Experience",

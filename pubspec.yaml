@@ -13,6 +13,7 @@ dependencies:
   sizer: ^2.0.15
   video_player: ^2.8.2
   youtube_player_flutter: ^8.1.2
+  url_launcher: ^6.2.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -27,4 +28,6 @@ flutter:
     - assets/pyramids.mp4
     - assets/cairoTower.mp4
     - assets/KhanKhaliliBazaar.mp4
+    - assets/grandEgyptianMuseum.mp4
     - assets/videowallpaper.jpg
+    - assets/icons/

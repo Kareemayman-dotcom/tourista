@@ -20,6 +20,7 @@ class FullVideoCubit extends Cubit<YoutubePlayerController?> {
 
   @override
   Future<void> close() {
+    
     state?.dispose();
     return super.close();
   }

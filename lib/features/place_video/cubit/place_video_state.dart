@@ -10,6 +10,12 @@ class PlaceVideoPlaying extends PlaceVideoState {}
 
 class PlaceVideoPaused extends PlaceVideoState {}
 
+class PlaceVideoUnpause extends PlaceVideoState {}
+
+class PlaceVideoMuted extends PlaceVideoState {}
+
+class PlaceVideounMuted extends PlaceVideoState {}
+
 class PlaceVideoError extends PlaceVideoState {
   final String message;
 

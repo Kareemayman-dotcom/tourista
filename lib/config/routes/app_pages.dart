@@ -5,6 +5,7 @@ import 'package:tourista/core/utils/app_strings.dart';
 import 'package:tourista/features/full_video/screens/full_video_screen.dart';
 import 'package:tourista/features/home/cubit/home_cubit.dart';
 import 'package:tourista/features/home/screens/home_screen.dart';
+import 'package:tourista/features/navigation_page/screens/navigation_page.dart';
 import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
 import 'package:tourista/features/place_video/screens/place_video_screen.dart';
 
@@ -24,7 +25,14 @@ class AppRoutes {
           maintainState: true,
           settings: const RouteSettings(name: Routes.initialRoute),
         );
-
+      case Routes.NavigationPage:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const NavigationPage();
+          },
+          maintainState: true,
+          settings: const RouteSettings(name: Routes.initialRoute),
+        );
       case Routes.placeVideoRoute:
         return MaterialPageRoute(
           builder: (context) {

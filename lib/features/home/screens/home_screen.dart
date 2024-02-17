@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tourista/config/routes/app_routes.dart';
 import 'package:tourista/features/home/cubit/home_cubit.dart';
-import 'package:tourista/features/navigation/presentation/cubit/navigation_cubit.dart';
 import 'package:video_player/video_player.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -87,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                           Shadow(
                               offset: Offset(1.0, 1.0),
                               blurRadius: 2.0,
-                              color: Color.fromARGB(255, 255, 218, 69)),
+                              color: Color.fromARGB(255, 235, 190, 10)),
                         ],
                         fontFamily: 'Poppins',
                       ),
@@ -98,8 +97,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.pushReplacementNamed(
                       context,
-                      Routes.placeVideoRoute,
-                      arguments: context.read<NavigationCubit>().placeIndex,
+                      Routes.NavigationPage,
                     );
                   },
                   child: Container(
@@ -108,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                     margin: EdgeInsets.only(bottom: 15.h),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: const Color.fromARGB(255, 255, 218, 69),
+                      color: const Color.fromARGB(255, 235, 190, 10),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
