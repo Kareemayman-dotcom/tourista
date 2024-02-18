@@ -23,13 +23,14 @@ class HomeCubit extends Cubit<VideoPlayerController?> {
     state?.play();
   }
 
-  void disposeVideo() {
-    state?.dispose();
+  Future<void> disposeVideo() async {
+    await state?.pause();
+    await state?.dispose();
   }
 
   @override
-  Future<void> close() {
-    disposeVideo();
+  Future<void> close() async {
+    await disposeVideo();
     return super.close();
   }
 }

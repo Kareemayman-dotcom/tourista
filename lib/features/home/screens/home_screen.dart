@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tourista/config/routes/app_routes.dart';
+import 'package:tourista/core/utils/app_life_cycle_manager.dart';
 import 'package:tourista/features/home/cubit/home_cubit.dart';
 import 'package:video_player/video_player.dart';
 
@@ -10,6 +11,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AppLifecycleManager(context);
+    });
     return Scaffold(
       body: Stack(
         children: [
@@ -98,9 +102,10 @@ class HomeScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacementNamed(
+                    Navigator.pushNamedAndRemoveUntil(
                       context,
                       Routes.navigationPage,
+                      (route) => false,
                     );
                   },
                   child: Container(
