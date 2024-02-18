@@ -9,9 +9,7 @@ class FullVideoCubit extends Cubit<YoutubePlayerController?> {
     final controller = YoutubePlayerController(
       initialVideoId: videoId!,
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
-        captionLanguage: "ar",
-        showLiveFullscreenButton: true,
+        captionLanguage: 'ar',
         useHybridComposition: false,
       ),
     );
@@ -20,7 +18,6 @@ class FullVideoCubit extends Cubit<YoutubePlayerController?> {
 
   @override
   Future<void> close() {
-    
     state?.dispose();
     return super.close();
   }

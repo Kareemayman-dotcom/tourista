@@ -3,13 +3,13 @@ import 'package:sizer/sizer.dart';
 import 'package:tourista/core/utils/constants.dart';
 
 class ParagraphWidget extends StatelessWidget {
-  final String header;
-  final String text;
   const ParagraphWidget({
     required this.header,
     required this.text,
     super.key,
   });
+  final String header;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +17,20 @@ class ParagraphWidget extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 5.h),
       child: RichText(
         textAlign: TextAlign.justify,
-        text: TextSpan(text: " $header\n", style: titleStyle, children: [
-          const TextSpan(text: "\n"),
-          TextSpan(
+        text: TextSpan(
+          text: ' $header\n',
+          style: titleStyle,
+          children: [
+            const TextSpan(text: '\n'),
+            TextSpan(
               text: text,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 12.sp,
-              ))
-        ]),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

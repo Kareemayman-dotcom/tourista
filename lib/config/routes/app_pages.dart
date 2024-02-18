@@ -6,7 +6,6 @@ import 'package:tourista/features/full_video/screens/full_video_screen.dart';
 import 'package:tourista/features/home/cubit/home_cubit.dart';
 import 'package:tourista/features/home/screens/home_screen.dart';
 import 'package:tourista/features/navigation_page/screens/navigation_page.dart';
-import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
 import 'package:tourista/features/place_video/screens/place_video_screen.dart';
 
 /// Application routes
@@ -22,23 +21,22 @@ class AppRoutes {
               child: const HomeScreen(),
             );
           },
-          maintainState: true,
           settings: const RouteSettings(name: Routes.initialRoute),
         );
-      case Routes.NavigationPage:
+      case Routes.navigationPage:
         return MaterialPageRoute(
           builder: (context) {
             return const NavigationPage();
           },
-          maintainState: true,
-          settings: const RouteSettings(name: Routes.initialRoute),
+          settings: const RouteSettings(name: Routes.navigationPage),
         );
       case Routes.placeVideoRoute:
         return MaterialPageRoute(
           builder: (context) {
-            return PlaceVideoScreen(placeIndex: routeSettings.arguments as int);
+            return PlaceVideoScreen(
+              placeIndex: routeSettings.arguments! as int,
+            );
           },
-          maintainState: true,
           settings: const RouteSettings(name: Routes.placeVideoRoute),
         );
 
@@ -46,10 +44,9 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) {
             return FullVideoScreen(
-              videoUrl: routeSettings.arguments as String,
+              videoUrl: routeSettings.arguments! as String,
             );
           },
-          maintainState: true,
           settings: const RouteSettings(name: Routes.fullVideoRoute),
         );
 

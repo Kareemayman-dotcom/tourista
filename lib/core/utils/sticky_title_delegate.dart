@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class StickyTitleDelegate extends SliverPersistentHeaderDelegate {
-  final String title;
-
   StickyTitleDelegate(this.title);
+  final String title;
 
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
       child: Text(

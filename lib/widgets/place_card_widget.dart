@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
-
 import 'package:tourista/core/utils/app_bar_delegate.dart';
-import 'package:tourista/core/utils/constants.dart';
 import 'package:tourista/core/utils/sticky_title_delegate.dart';
 import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
 import 'package:tourista/models/place_model.dart';
-import 'package:tourista/widgets/paragraph_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PlaceCardWidget extends StatelessWidget {
-  PlaceModel placeModel;
-
-  PlaceCardWidget({
-    Key? key,
+  const PlaceCardWidget({
     required this.placeModel,
-  }) : super(key: key);
+    super.key,
+  });
+  final PlaceModel placeModel;
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +57,9 @@ class PlaceCardWidget extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.w),
                         child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: placeModel.paragraphs),
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: placeModel.paragraphs,
+                        ),
                       ),
                     ),
                   ],
@@ -71,9 +68,9 @@ class PlaceCardWidget extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: GestureDetector(
                     onTap: () async {
-                      final Uri _url = Uri.parse(placeModel.locationAddress);
-                      if (!await launchUrl(_url)) {
-                        throw Exception('Could not launch $_url');
+                      final url = Uri.parse(placeModel.locationAddress);
+                      if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
                       }
                     },
                     child: Container(
@@ -94,7 +91,7 @@ class PlaceCardWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             );
           },

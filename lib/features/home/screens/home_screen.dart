@@ -24,15 +24,17 @@ class HomeScreen extends StatelessWidget {
                     child: FittedBox(
                       fit: BoxFit.fitHeight,
                       child: SizedBox(
-                          height: controller.value.size.height,
-                          width: controller.value.size.width,
-                          child: VideoPlayer(controller)),
+                        height: controller.value.size.height,
+                        width: controller.value.size.width,
+                        child: VideoPlayer(controller),
+                      ),
                     ),
                   ),
                 );
               } else {
                 return const Center(
-                    child: CircularProgressIndicator.adaptive());
+                  child: CircularProgressIndicator.adaptive(),
+                );
               }
             },
           ),
@@ -45,14 +47,13 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(height: 10.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Tourista",
+                          'Tourista',
                           style: TextStyle(
                             fontSize: 50.sp,
                             fontWeight: FontWeight.bold,
@@ -62,18 +63,19 @@ class HomeScreen extends StatelessWidget {
                               ..color = Colors.black,
                             shadows: const <Shadow>[
                               Shadow(
-                                  offset: Offset(1.0, 1.0),
-                                  blurRadius: 2.0,
-                                  color: Colors.white),
+                                offset: Offset(1, 1),
+                                blurRadius: 2,
+                                color: Colors.white,
+                              ),
                             ],
                             fontFamily: 'Poppins',
                           ),
                         ),
-                        Image.asset("assets/pyramids.png", height: 10.h)
+                        Image.asset('assets/pyramids.png', height: 10.h),
                       ],
                     ),
                     Text(
-                      "Explore fun historical places in the city.",
+                      'Explore fun historical places in the city.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 28.sp,
@@ -84,20 +86,21 @@ class HomeScreen extends StatelessWidget {
                           ..color = Colors.white,
                         shadows: const <Shadow>[
                           Shadow(
-                              offset: Offset(1.0, 1.0),
-                              blurRadius: 2.0,
-                              color: Color.fromARGB(255, 235, 190, 10)),
+                            offset: Offset(1, 1),
+                            blurRadius: 2,
+                            color: Color.fromARGB(255, 235, 190, 10),
+                          ),
                         ],
                         fontFamily: 'Poppins',
                       ),
-                    )
+                    ),
                   ],
                 ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushReplacementNamed(
                       context,
-                      Routes.NavigationPage,
+                      Routes.navigationPage,
                     );
                   },
                   child: Container(
@@ -112,13 +115,13 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Explore now",
+                          'Explore now',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20.sp,
                           ),
                         ),
-                        Image.asset('assets/tourist.png')
+                        Image.asset('assets/tourist.png'),
                       ],
                     ),
                   ),

@@ -4,21 +4,24 @@ import 'package:sizer/sizer.dart';
 import 'package:tourista/config/routes/app_routes.dart';
 import 'package:tourista/core/utils/custom_clipper.dart';
 import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
-import 'package:tourista/features/place_video/screens/place_video_screen.dart';
 import 'package:video_player/video_player.dart';
 
 class AppBarDelegate extends SliverPersistentHeaderDelegate {
+  AppBarDelegate({
+    required this.minHeight,
+    required this.maxHeight,
+    required this.fullVideoLink,
+  });
   final double minHeight;
   final double maxHeight;
   String fullVideoLink;
-  AppBarDelegate(
-      {required this.minHeight,
-      required this.maxHeight,
-      required this.fullVideoLink});
 
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     context.read<PlaceVideoCubit>().controller!;
     return ClipPath(
       clipper: CustomClip(),
@@ -81,10 +84,13 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
             //     // Execute code for left to right drag
             //   }
             // },
-            onTap: () async {
+            onTap: () {
               context.read<PlaceVideoCubit>().controller!.pause();
-              Navigator.pushNamed(context, Routes.fullVideoRoute,
-                  arguments: fullVideoLink);
+              Navigator.pushNamed(
+                context,
+                Routes.fullVideoRoute,
+                arguments: fullVideoLink,
+              );
             },
             child: SizedBox(
               height: 50.h,
@@ -128,13 +134,15 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
                               .size
                               .height,
                           child: VideoPlayer(
-                              context.read<PlaceVideoCubit>().controller!),
+                            context.read<PlaceVideoCubit>().controller!,
+                          ),
                         ),
                       ),
                     );
                   } else {
                     return const Center(
-                        child: CircularProgressIndicator.adaptive());
+                      child: CircularProgressIndicator.adaptive(),
+                    );
                   }
                 },
               ),
@@ -162,14 +170,14 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
                 child: BlocBuilder<PlaceVideoCubit, PlaceVideoState>(
                   builder: (context, state) {
                     if (context.read<PlaceVideoCubit>().muted) {
-                      return Icon(Icons.volume_off);
+                      return const Icon(Icons.volume_off);
                     }
-                    return Icon(Icons.volume_up);
+                    return const Icon(Icons.volume_up);
                   },
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

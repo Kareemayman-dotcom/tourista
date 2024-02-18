@@ -5,19 +5,18 @@ import 'package:video_player/video_player.dart';
 class HomeCubit extends Cubit<VideoPlayerController?> {
   HomeCubit() : super(null);
 
-  void initializeVideo() async {
+  Future<void> initializeVideo() async {
     // Create and assign the controller before starting initialization
-    final VideoPlayerController controller =
-        VideoPlayerController.asset('assets/CairoTimeLapse.mp4');
+    final controller = VideoPlayerController.asset('assets/CairoTimeLapse.mp4');
 
-    controller.initialize().then((_) {
+    await controller.initialize().then((_) {
       emit(controller); // Now safe to use the controller variable
       playVideo(); // Automatically play the video after initialization
     }).catchError((error) {
       debugPrint('Error initializing video: $error');
     });
 
-    controller.setLooping(true); // Ensure looping is set
+    await controller.setLooping(true); // Ensure looping is set
   }
 
   void playVideo() {

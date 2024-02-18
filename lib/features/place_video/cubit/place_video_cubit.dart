@@ -8,9 +8,9 @@ part 'place_video_state.dart';
 enum PlaceVideoStatus { loading, playing, paused }
 
 class PlaceVideoCubit extends Cubit<PlaceVideoState> {
+  PlaceVideoCubit() : super(PlaceVideoInitial());
   VideoPlayerController? controller; // Make it nullable
   bool muted = false;
-  PlaceVideoCubit() : super(PlaceVideoInitial());
 
   // Method to initialize the controller
   void initializeController(String videoAddress) {

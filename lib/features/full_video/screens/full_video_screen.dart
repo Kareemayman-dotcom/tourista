@@ -6,9 +6,8 @@ import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class FullVideoScreen extends StatelessWidget {
+  const FullVideoScreen({required this.videoUrl, super.key});
   final String videoUrl;
-
-  const FullVideoScreen({super.key, required this.videoUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -21,42 +20,44 @@ class FullVideoScreen extends StatelessWidget {
           //     body: Center(child: CircularProgressIndicator()),
           //   );
           return PopScope(
-            canPop: true,
             onPopInvoked: (didPop) async {
               context.read<PlaceVideoCubit>().backInFocus();
               Navigator.pop(context);
             },
             child: Scaffold(
-                body: controller == null
-                    ? Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    : OrientationBuilder(
-                        builder: (context, orientation) {
-                          return Stack(
-                            children: [
-                              orientation == Orientation.portrait
-                                  ? Container(
-                                      height: 100.h,
-                                      width: 100.w,
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/videowallpaper.jpg"),
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                      ),
-                                    )
-                                  : const Text(''),
-                              Center(
-                                child: YoutubePlayer(
-                                  controller: controller!,
+              body: controller == null
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : OrientationBuilder(
+                      builder: (context, orientation) {
+                        return Stack(
+                          children: [
+                            if (orientation == Orientation.portrait)
+                              Container(
+                                height: 100.h,
+                                width: 100.w,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      'assets/videowallpaper.jpg',
+                                    ),
+                                    fit: BoxFit.fitHeight,
+                                  ),
                                 ),
+                              )
+                            else
+                              const Text(''),
+                            Center(
+                              child: YoutubePlayer(
+                                controller: controller,
                               ),
-                            ],
-                          );
-                        },
-                      )),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+            ),
           );
         },
       ),
