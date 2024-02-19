@@ -6,13 +6,19 @@ import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class FullVideoScreen extends StatelessWidget {
-  const FullVideoScreen({required this.videoUrl, super.key});
   final String videoUrl;
+  final BuildContext placeVideoContext;
+   const FullVideoScreen({required this.videoUrl, super.key, required this.placeVideoContext});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FullVideoCubit()..initYoutubePlayer(videoUrl),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => FullVideoCubit()..initYoutubePlayer(videoUrl),
+        ),
+        BlocProvider.value(value: placeVideoContext.read<PlaceVideoCubit>()..play()),
+      ],
       child: BlocBuilder<FullVideoCubit, YoutubePlayerController?>(
         builder: (context, controller) {
           // if (controller == null) {

@@ -15,6 +15,7 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.initialRoute:
         return MaterialPageRoute(
+          maintainState: false,
           builder: (context) {
             return BlocProvider(
               create: (context) => HomeCubit()..initializeVideo(),
@@ -24,7 +25,9 @@ class AppRoutes {
           settings: const RouteSettings(name: Routes.initialRoute),
         );
       case Routes.navigationPage:
+      
         return MaterialPageRoute(
+          maintainState: false,
           builder: (context) {
             return const NavigationPage();
           },
@@ -43,8 +46,10 @@ class AppRoutes {
       case Routes.fullVideoRoute:
         return MaterialPageRoute(
           builder: (context) {
+            final args = routeSettings.arguments! as List;
             return FullVideoScreen(
-              videoUrl: routeSettings.arguments! as String,
+              placeVideoContext: args[0] as BuildContext,
+              videoUrl: args[1] as String,
             );
           },
           settings: const RouteSettings(name: Routes.fullVideoRoute),

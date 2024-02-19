@@ -1,0 +1,64 @@
+Date : 2024-02-19 02:11:00
+Directory : c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib
+Total : 21 files,  1048 codes, 82 comments, 100 blanks, all 1230 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |         21 |      1,048 |         82 |        100 |      1,230 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                  | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                     |         21 |      1,048 |         82 |        100 |      1,230 |
+| . (Files)                                                                                                             |          2 |         28 |          0 |          5 |         33 |
+| config                                                                                                                |          2 |         70 |          3 |          6 |         79 |
+| config\routes                                                                                                         |          2 |         70 |          3 |          6 |         79 |
+| core                                                                                                                  |          6 |        325 |         62 |         31 |        418 |
+| core\utils                                                                                                            |          6 |        325 |         62 |         31 |        418 |
+| features                                                                                                              |          8 |        477 |         13 |         50 |        540 |
+| features\full_video                                                                                                   |          2 |         87 |          4 |          7 |         98 |
+| features\full_video\cubit                                                                                             |          1 |         21 |          0 |          4 |         25 |
+| features\full_video\screens                                                                                           |          1 |         66 |          4 |          3 |         73 |
+| features\home                                                                                                         |          2 |        189 |          1 |         12 |        202 |
+| features\home\cubit                                                                                                   |          1 |         28 |          1 |          8 |         37 |
+| features\home\screens                                                                                                 |          1 |        161 |          0 |          4 |        165 |
+| features\navigation_page                                                                                              |          1 |        103 |          0 |          4 |        107 |
+| features\navigation_page\screens                                                                                      |          1 |        103 |          0 |          4 |        107 |
+| features\place_video                                                                                                  |          3 |         98 |          8 |         27 |        133 |
+| features\place_video\cubit                                                                                            |          2 |         77 |          8 |         24 |        109 |
+| features\place_video\screens                                                                                          |          1 |         21 |          0 |          3 |         24 |
+| models                                                                                                                |          1 |         17 |          0 |          2 |         19 |
+| widgets                                                                                                               |          2 |        131 |          4 |          6 |        141 |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                              | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\app.dart                                              | Dart     |         20 |          0 |          3 |         23 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\config\routes\app_pages.dart                          | Dart     |         64 |          3 |          5 |         72 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\config\routes\app_routes.dart                         | Dart     |          6 |          0 |          1 |          7 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\app_bar_delegate.dart                      | Dart     |        135 |         54 |         10 |        199 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\app_strings.dart                           | Dart     |          4 |          2 |          2 |          8 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\bloc_observer.dart                         | Dart     |         37 |          4 |          9 |         50 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\constants.dart                             | Dart     |        102 |          2 |          2 |        106 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\custom_clipper.dart                        | Dart     |         16 |          0 |          3 |         19 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\sticky_title_delegate.dart                 | Dart     |         31 |          0 |          5 |         36 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\full_video\cubit\full_video.dart             | Dart     |         21 |          0 |          4 |         25 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\full_video\screens\full_video_screen.dart    | Dart     |         66 |          4 |          3 |         73 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\home\cubit\home_cubit.dart                   | Dart     |         28 |          1 |          8 |         37 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\home\screens\home_screen.dart                | Dart     |        161 |          0 |          4 |        165 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\navigation_page\screens\navigation_page.dart | Dart     |        103 |          0 |          4 |        107 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\place_video\cubit\place_video_cubit.dart     | Dart     |         64 |          8 |         13 |         85 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\place_video\cubit\place_video_state.dart     | Dart     |         13 |          0 |         11 |         24 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\place_video\screens\place_video_screen.dart  | Dart     |         21 |          0 |          3 |         24 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\main.dart                                             | Dart     |          8 |          0 |          2 |         10 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\models\place_model.dart                               | Dart     |         17 |          0 |          2 |         19 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\widgets\paragraph_widget.dart                         | Dart     |         35 |          0 |          3 |         38 |
+| c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\widgets\place_card_widget.dart                        | Dart     |         96 |          4 |          3 |        103 |
+| Total                                                                                                                 |          |      1,048 |         82 |        100 |      1,230 |
++-----------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
