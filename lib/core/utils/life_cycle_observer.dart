@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tourista/features/home/cubit/home_cubit.dart';
@@ -11,9 +10,9 @@ class LifecycleObserver extends WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      // App is in the foreground
+      context.read<HomeCubit>().playVideo();
     } else if (state == AppLifecycleState.paused) {
-      context.read<HomeCubit>().close();
+      context.read<HomeCubit>().pauseVideo();
     }
     if (state == AppLifecycleState.detached) {
       context.read<HomeCubit>().close();
