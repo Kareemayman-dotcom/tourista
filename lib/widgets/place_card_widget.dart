@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:sizer/sizer.dart';
+import 'package:tourista/config/routes/app_routes.dart';
 import 'package:tourista/core/utils/app_bar_delegate.dart';
 import 'package:tourista/core/utils/sticky_title_delegate.dart';
 import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
@@ -66,31 +68,117 @@ class PlaceCardWidget extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.bottomRight,
-                  child: GestureDetector(
-                    onTap: () async {
-                      final url = Uri.parse(placeModel.locationAddress);
-                      if (!await launchUrl(url)) {
-                        throw Exception('Could not launch $url');
-                      }
-                    },
-                    child: Container(
-                      margin: EdgeInsets.only(
+                  child: Padding(
+                      padding: EdgeInsets.only(
                         right: 5.w,
                         bottom: 3.h,
                       ),
-                      height: 15.w,
-                      width: 15.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.amber,
-                      ),
-                      child: Icon(
-                        Icons.location_on,
-                        color: Colors.white,
-                        size: 24.sp,
-                      ),
-                    ),
-                  ),
+                      child: placeModel.ticketAddress == null
+                          ? SpeedDial(
+                              animatedIcon: AnimatedIcons.menu_close,
+                              childPadding: EdgeInsets.only(bottom: 2.h),
+                              childrenButtonSize: Size(50.sp, 50.sp),
+                              overlayColor: Colors.transparent,
+                              overlayOpacity: 0,
+                              children: [
+                                SpeedDialChild(
+                                    onTap: () async {
+                                      final url =
+                                          Uri.parse(placeModel.locationAddress);
+                                      if (!await launchUrl(url)) {
+                                        throw Exception(
+                                            'Could not launch $url');
+                                      }
+                                    },
+                                    shape: CircleBorder(),
+                                    backgroundColor: Colors.amberAccent,
+                                    child: Icon(
+                                      Icons.location_on,
+                                      color: Colors.white,
+                                      size: 24.sp,
+                                    )),
+                                SpeedDialChild(
+                                    onTap: () async {
+                                      // ignore: use_build_context_synchronously
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.fullVideoRoute,
+                                        arguments: [
+                                          context,
+                                          placeModel.fullVideoUrl
+                                        ],
+                                      );
+                                    },
+                                    shape: CircleBorder(),
+                                    backgroundColor: Colors.amberAccent,
+                                    child: Icon(
+                                      Icons.ondemand_video_rounded,
+                                      color: Colors.white,
+                                      size: 24.sp,
+                                    )),
+                              ],
+                            )
+                          : SpeedDial(
+                              animatedIcon: AnimatedIcons.menu_close,
+                              childPadding: EdgeInsets.only(bottom: 2.h),
+                              childrenButtonSize: Size(50.sp, 50.sp),
+                              overlayColor: Colors.transparent,
+                              overlayOpacity: 0,
+                              children: [
+                                SpeedDialChild(
+                                    onTap: () async {
+                                      final url =
+                                          Uri.parse(placeModel.locationAddress);
+                                      if (!await launchUrl(url)) {
+                                        throw Exception(
+                                            'Could not launch $url');
+                                      }
+                                    },
+                                    shape: CircleBorder(),
+                                    backgroundColor: Colors.amberAccent,
+                                    child: Icon(
+                                      Icons.location_on,
+                                      color: Colors.white,
+                                      size: 24.sp,
+                                    )),
+                                SpeedDialChild(
+                                    onTap: () async {
+                                      final url =
+                                          Uri.parse(placeModel.ticketAddress!);
+
+                                      if (!await launchUrl(url)) {
+                                        throw Exception(
+                                            'Could not launch $url');
+                                      }
+                                    },
+                                    shape: CircleBorder(),
+                                    backgroundColor: Colors.amberAccent,
+                                    child: Icon(
+                                      Icons.book_online_rounded,
+                                      color: Colors.white,
+                                      size: 24.sp,
+                                    )),
+                                SpeedDialChild(
+                                    onTap: () async {
+                                      // ignore: use_build_context_synchronously
+                                      Navigator.pushNamed(
+                                        context,
+                                        Routes.fullVideoRoute,
+                                        arguments: [
+                                          context,
+                                          placeModel.fullVideoUrl
+                                        ],
+                                      );
+                                    },
+                                    shape: CircleBorder(),
+                                    backgroundColor: Colors.amberAccent,
+                                    child: Icon(
+                                      Icons.ondemand_video_rounded,
+                                      color: Colors.white,
+                                      size: 24.sp,
+                                    )),
+                              ],
+                            )),
                 ),
               ],
             );

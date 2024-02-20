@@ -22,13 +22,12 @@ class NavigationPage extends StatelessWidget {
             actions: [
               TextButton(
                 onPressed: () =>
-                    Navigator.of (context).pop(), // Dismiss the dialog
+                    Navigator.of(context).pop(), // Dismiss the dialog
                 child: Text('Cancel'),
               ),
               TextButton(
                 onPressed: () async {
                   if (Platform.isAndroid) {
-
                     await SystemNavigator.pop();
                   } else {
                     exit(0);

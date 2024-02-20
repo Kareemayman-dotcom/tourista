@@ -1,0 +1,17 @@
+"filename", "language", "Dart", "JSON", "comment", "blank", "total"
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\app.dart", "Dart", 9, 0, 0, 0, 9
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\config\routes\app_pages.dart", "Dart", 2, 0, 0, 1, 3
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\app_bar_delegate.dart", "Dart", -8, 0, 8, 0, 0
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\app_life_cycle_manager.dart", "Dart", 25, 0, 4, 6, 35
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\constants.dart", "Dart", 16, 0, 0, 0, 16
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\life_cycle_observer.dart", "Dart", 19, 0, 1, 3, 23
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\home\screens\home_screen.dart", "Dart", -22, 0, 0, -2, -24
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\navigation_page\screens\navigation_page.dart", "Dart", 4, 0, 0, 0, 4
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\place_video\cubit\place_video_cubit.dart", "Dart", 10, 0, 0, 0, 10
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\generated\intl\messages_all.dart", "Dart", 44, 0, 10, 10, 64
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\generated\intl\messages_en.dart", "Dart", 9, 0, 10, 7, 26
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\generated\l10n.dart", "Dart", 56, 0, 8, 15, 79
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\l10n\intl_en.arb", "JSON", 0, 79, 0, 3, 82
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\models\place_model.dart", "Dart", 3, 0, 0, 0, 3
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\widgets\place_card_widget.dart", "Dart", 85, 0, 2, 1, 88
+"Total", "-", 252, 79, 43, 44, 418

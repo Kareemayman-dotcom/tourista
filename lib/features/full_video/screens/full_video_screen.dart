@@ -27,7 +27,7 @@ class FullVideoScreen extends StatelessWidget {
           //   );
           return PopScope(
             onPopInvoked: (didPop) async {
-              context.read<PlaceVideoCubit>().backInFocus();
+              context.read<PlaceVideoCubit>().play();
               Navigator.pop(context);
             },
             child: Scaffold(

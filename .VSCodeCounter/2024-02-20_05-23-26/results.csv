@@ -1,0 +1,29 @@
+"filename", "language", "Dart", "JSON", "comment", "blank", "total"
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\app.dart", "Dart", 29, 0, 0, 3, 32
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\config\routes\app_pages.dart", "Dart", 66, 0, 3, 6, 75
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\config\routes\app_routes.dart", "Dart", 6, 0, 0, 1, 7
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\app_bar_delegate.dart", "Dart", 127, 0, 62, 10, 199
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\app_life_cycle_manager.dart", "Dart", 25, 0, 4, 6, 35
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\app_strings.dart", "Dart", 4, 0, 2, 2, 8
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\bloc_observer.dart", "Dart", 37, 0, 4, 9, 50
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\constants.dart", "Dart", 118, 0, 2, 2, 122
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\custom_clipper.dart", "Dart", 16, 0, 0, 3, 19
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\life_cycle_observer.dart", "Dart", 19, 0, 1, 3, 23
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\core\utils\sticky_title_delegate.dart", "Dart", 31, 0, 0, 5, 36
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\full_video\cubit\full_video.dart", "Dart", 21, 0, 0, 4, 25
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\full_video\screens\full_video_screen.dart", "Dart", 66, 0, 4, 3, 73
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\home\cubit\home_cubit.dart", "Dart", 28, 0, 1, 8, 37
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\home\screens\home_screen.dart", "Dart", 139, 0, 0, 2, 141
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\navigation_page\screens\navigation_page.dart", "Dart", 107, 0, 0, 4, 111
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\place_video\cubit\place_video_cubit.dart", "Dart", 74, 0, 8, 13, 95
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\place_video\cubit\place_video_state.dart", "Dart", 13, 0, 0, 11, 24
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\features\place_video\screens\place_video_screen.dart", "Dart", 21, 0, 0, 3, 24
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\generated\intl\messages_all.dart", "Dart", 44, 0, 10, 10, 64
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\generated\intl\messages_en.dart", "Dart", 9, 0, 10, 7, 26
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\generated\l10n.dart", "Dart", 56, 0, 8, 15, 79
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\l10n\intl_en.arb", "JSON", 0, 79, 0, 3, 82
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\main.dart", "Dart", 8, 0, 0, 2, 10
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\models\place_model.dart", "Dart", 20, 0, 0, 2, 22
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\widgets\paragraph_widget.dart", "Dart", 35, 0, 0, 3, 38
+"c:\Users\Kareem Ayman\Development\projects\flutter\tourista\lib\widgets\place_card_widget.dart", "Dart", 181, 0, 6, 4, 191
+"Total", "-", 1300, 79, 125, 144, 1648

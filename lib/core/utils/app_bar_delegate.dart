@@ -84,15 +84,15 @@ class AppBarDelegate extends SliverPersistentHeaderDelegate {
             //     // Execute code for left to right drag
             //   }
             // },
-            onTap: () async{
-              await context.read<PlaceVideoCubit>().controller!.pause();
-              // ignore: use_build_context_synchronously
-              Navigator.pushNamed(
-                context,
-                Routes.fullVideoRoute,
-                arguments: [context,fullVideoLink],
-              );
-            },
+            // onTap: () async{
+            //   await context.read<PlaceVideoCubit>().controller!.pause();
+            //   // ignore: use_build_context_synchronously
+            //   Navigator.pushNamed(
+            //     context,
+            //     Routes.fullVideoRoute,
+            //     arguments: [context,fullVideoLink],
+            //   );
+            // },
             child: SizedBox(
               height: 50.h,
               width: double.infinity,
