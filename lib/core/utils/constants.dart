@@ -3,6 +3,20 @@ import 'package:sizer/sizer.dart';
 import 'package:tourista/models/place_model.dart';
 import 'package:tourista/widgets/paragraph_widget.dart';
 
+TextStyle speedDialChildLabelStyle = TextStyle(
+    // textBaseline: TextBaseline.alphabetic,
+    color: Colors.white,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+          blurRadius: 8,
+          color: Colors.black,
+          offset: Offset(
+            0,
+            3,
+          ))
+    ]);
 TextStyle titleStyle = TextStyle(
   color: Colors.black,
   fontSize: 16.sp,

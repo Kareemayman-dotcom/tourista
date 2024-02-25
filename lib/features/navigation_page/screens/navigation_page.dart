@@ -87,12 +87,19 @@ class NavigationPage extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            textAlign: TextAlign.center,
                             places[index].title,
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  blurRadius: 3.0, // Adjust blur strength
+                                  offset: Offset(2.0, 2.0), // Adjust offset
+                                ),
+                              ],
                             ),
                           ),
                         ),

@@ -4,6 +4,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:sizer/sizer.dart';
 import 'package:tourista/config/routes/app_routes.dart';
 import 'package:tourista/core/utils/app_bar_delegate.dart';
+import 'package:tourista/core/utils/constants.dart';
 import 'package:tourista/core/utils/sticky_title_delegate.dart';
 import 'package:tourista/features/place_video/cubit/place_video_cubit.dart';
 import 'package:tourista/models/place_model.dart';
@@ -78,10 +79,15 @@ class PlaceCardWidget extends StatelessWidget {
                               animatedIcon: AnimatedIcons.menu_close,
                               childPadding: EdgeInsets.only(bottom: 2.h),
                               childrenButtonSize: Size(50.sp, 50.sp),
-                              overlayColor: Colors.transparent,
-                              overlayOpacity: 0,
+                              overlayColor: Colors.black,
+                              overlayOpacity: .3,
                               children: [
                                 SpeedDialChild(
+                                    labelBackgroundColor: Colors.transparent,
+                                    label: "Location",
+                                    labelStyle: speedDialChildLabelStyle,
+                                    labelShadow: [],
+                                    elevation: 10,
                                     onTap: () async {
                                       final url =
                                           Uri.parse(placeModel.locationAddress);
@@ -91,13 +97,19 @@ class PlaceCardWidget extends StatelessWidget {
                                       }
                                     },
                                     shape: CircleBorder(),
-                                    backgroundColor: Colors.amberAccent,
+                                    backgroundColor:
+                                        Color.fromARGB(255, 235, 190, 10),
                                     child: Icon(
                                       Icons.location_on,
                                       color: Colors.white,
                                       size: 24.sp,
                                     )),
                                 SpeedDialChild(
+                                    labelBackgroundColor: Colors.transparent,
+                                    label: "Watch A Video",
+                                    labelStyle: speedDialChildLabelStyle,
+                                    labelShadow: [],
+                                    elevation: 10,
                                     onTap: () async {
                                       // ignore: use_build_context_synchronously
                                       Navigator.pushNamed(
@@ -110,9 +122,31 @@ class PlaceCardWidget extends StatelessWidget {
                                       );
                                     },
                                     shape: CircleBorder(),
-                                    backgroundColor: Colors.amberAccent,
+                                    backgroundColor:
+                                        Color.fromARGB(255, 235, 190, 10),
                                     child: Icon(
                                       Icons.ondemand_video_rounded,
+                                      color: Colors.white,
+                                      size: 24.sp,
+                                    )),
+                                SpeedDialChild(
+                                    labelBackgroundColor: Colors.transparent,
+                                    label: "Home",
+                                    labelStyle: speedDialChildLabelStyle,
+                                    labelShadow: [],
+                                    elevation: 10,
+                                    onTap: () {
+                                      Navigator.pushNamedAndRemoveUntil(
+                                        context,
+                                        Routes.navigationPage,
+                                        (route) => false,
+                                      );
+                                    },
+                                    shape: CircleBorder(),
+                                    backgroundColor:
+                                        Color.fromARGB(255, 235, 190, 10),
+                                    child: Icon(
+                                      Icons.home,
                                       color: Colors.white,
                                       size: 24.sp,
                                     )),
@@ -122,10 +156,15 @@ class PlaceCardWidget extends StatelessWidget {
                               animatedIcon: AnimatedIcons.menu_close,
                               childPadding: EdgeInsets.only(bottom: 2.h),
                               childrenButtonSize: Size(50.sp, 50.sp),
-                              overlayColor: Colors.transparent,
-                              overlayOpacity: 0,
+                              overlayColor: Colors.black,
+                              overlayOpacity: .3,
                               children: [
                                 SpeedDialChild(
+                                    labelBackgroundColor: Colors.transparent,
+                                    label: "Location",
+                                    labelStyle: speedDialChildLabelStyle,
+                                    labelShadow: [],
+                                    elevation: 10,
                                     onTap: () async {
                                       final url =
                                           Uri.parse(placeModel.locationAddress);
@@ -135,13 +174,19 @@ class PlaceCardWidget extends StatelessWidget {
                                       }
                                     },
                                     shape: CircleBorder(),
-                                    backgroundColor: Colors.amberAccent,
+                                    backgroundColor:
+                                        Color.fromARGB(255, 235, 190, 10),
                                     child: Icon(
                                       Icons.location_on,
                                       color: Colors.white,
                                       size: 24.sp,
                                     )),
                                 SpeedDialChild(
+                                    labelBackgroundColor: Colors.transparent,
+                                    label: "Book now",
+                                    labelStyle: speedDialChildLabelStyle,
+                                    labelShadow: [],
+                                    elevation: 10,
                                     onTap: () async {
                                       final url =
                                           Uri.parse(placeModel.ticketAddress!);
@@ -152,13 +197,19 @@ class PlaceCardWidget extends StatelessWidget {
                                       }
                                     },
                                     shape: CircleBorder(),
-                                    backgroundColor: Colors.amberAccent,
+                                    backgroundColor:
+                                        Color.fromARGB(255, 235, 190, 10),
                                     child: Icon(
                                       Icons.book_online_rounded,
                                       color: Colors.white,
                                       size: 24.sp,
                                     )),
                                 SpeedDialChild(
+                                    labelBackgroundColor: Colors.transparent,
+                                    label: "Watch A Video",
+                                    labelStyle: speedDialChildLabelStyle,
+                                    labelShadow: [],
+                                    elevation: 10,
                                     onTap: () async {
                                       // ignore: use_build_context_synchronously
                                       Navigator.pushNamed(
@@ -171,9 +222,31 @@ class PlaceCardWidget extends StatelessWidget {
                                       );
                                     },
                                     shape: CircleBorder(),
-                                    backgroundColor: Colors.amberAccent,
+                                    backgroundColor:
+                                        Color.fromARGB(255, 235, 190, 10),
                                     child: Icon(
                                       Icons.ondemand_video_rounded,
+                                      color: Colors.white,
+                                      size: 24.sp,
+                                    )),
+                                SpeedDialChild(
+                                    labelBackgroundColor: Colors.transparent,
+                                    label: "Home",
+                                    labelStyle: speedDialChildLabelStyle,
+                                    labelShadow: [],
+                                    elevation: 10,
+                                    onTap: () {
+                                      Navigator.pushNamedAndRemoveUntil(
+                                        context,
+                                        Routes.navigationPage,
+                                        (route) => false,
+                                      );
+                                    },
+                                    shape: CircleBorder(),
+                                    backgroundColor:
+                                        Color.fromARGB(255, 235, 190, 10),
+                                    child: Icon(
+                                      Icons.home,
                                       color: Colors.white,
                                       size: 24.sp,
                                     )),

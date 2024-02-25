@@ -8,7 +8,7 @@
         </intent>
         </queries>
     <application
-        android:label="tourista"
+        android:label="Tourista"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

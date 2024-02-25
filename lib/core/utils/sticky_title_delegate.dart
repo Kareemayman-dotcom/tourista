@@ -11,6 +11,8 @@ class StickyTitleDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
+    ;
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
       child: Text(
@@ -19,8 +21,23 @@ class StickyTitleDelegate extends SliverPersistentHeaderDelegate {
           color: Colors.white,
           fontSize: 22.sp,
           fontWeight: FontWeight.bold,
+          shadows: [
+            Shadow(
+              color: Colors.black,
+              blurRadius: 3.0, // Adjust blur strength
+              offset: Offset(2.0, 2.0), // Adjust offset
+            ),
+          ],
         ),
       ),
+      // child: Text(
+      //   title,
+      //   style: TextStyle(
+      //     color: Colors.white,
+      //     fontSize: 22.sp,
+      //     fontWeight: FontWeight.bold,
+      //   ),
+      // ),
     );
   }
 
